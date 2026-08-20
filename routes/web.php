@@ -28,3 +28,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/tributes/{id}/toggle', [AdminController::class, 'toggleTribute'])->name('tributes.toggle');
     Route::delete('/tributes/{id}', [AdminController::class, 'deleteTribute'])->name('tributes.delete');
 });
+
+// Temporary Route to Migrate Database on Vercel
+Route::get('/run-migrations-once', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
+            '--seed' => true,
+            '--force' => true,
+        ]);
+        return 'Database migrated and seeded successfully on Supabase! Go back to front page now.';
+    } catch (\Exception $e) {
+        return 'Error migrating database: ' . $e->getMessage();
+    }
+});
