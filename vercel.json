@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  },
+  "routes": [
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/public/robots.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_KEY": "base64:Xk5l3FqZ7K0gH4vP8yT2W1mJ6rL9sN0oQ3uV5xY7zA8=",
+    "APP_URL": "https://cicis-birthday.vercel.app",
+    "SESSION_DRIVER": "cookie",
+    "CACHE_STORE": "array",
+    "LOG_CHANNEL": "stderr"
+  }
+}
