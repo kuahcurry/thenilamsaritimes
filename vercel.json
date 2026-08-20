@@ -30,7 +30,7 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
     "APP_KEY": "base64:Xk5l3FqZ7K0gH4vP8yT2W1mJ6rL9sN0oQ3uV5xY7zA8=",
     "APP_URL": "https://cicis-birthday.vercel.app",
     "SESSION_DRIVER": "cookie",
