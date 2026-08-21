@@ -62,12 +62,12 @@
     </article>
 
     <!-- Share & Celebrate Box -->
-    <div class="nyt-border-double p-4 my-8 bg-[var(--nyt-paper-darker)] flex flex-wrap items-center justify-between gap-4">
+    <div class="nyt-border-double p-4 sm:p-5 my-8 bg-[var(--nyt-paper-darker)] flex flex-col sm:flex-row items-center justify-center text-center gap-3 sm:gap-6">
         <div>
             <h4 class="font-headline font-bold text-base text-[var(--nyt-black)]">Menikmati Tulisan ini?</h4>
             <p class="text-xs italic text-[var(--nyt-gray-muted)] font-serif">Tulis ucapan di bagian Opini & Surat Pembaca</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center justify-center gap-2 shrink-0">
             <button onclick="window.celebrateConfetti()" class="bg-amber-500 hover:bg-amber-600 text-black px-4 py-1.5 text-xs font-sans uppercase font-bold tracking-wider rounded-none cursor-pointer">
                 Confetti!
             </button>
