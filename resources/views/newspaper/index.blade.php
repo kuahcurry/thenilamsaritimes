@@ -28,7 +28,7 @@
                     @if($heroSides[0]->image_url)
                         <div class="pt-2">
                             <div class="overflow-hidden aspect-[4/5] w-full border border-[var(--nyt-gray-border)]">
-                                <img src="{{ $heroSides[0]->image_url }}" alt="{{ $heroSides[0]->title }}" class="w-full h-full aspect-[4/5] object-cover filter grayscale hover:grayscale-0 transition duration-300">
+                                <img src="{{ $heroSides[0]->image_url }}" alt="{{ $heroSides[0]->title }}" loading="lazy" decoding="async" class="w-full h-full aspect-[4/5] object-cover filter grayscale hover:grayscale-0 transition duration-300">
                             </div>
                             @if($heroSides[0]->image_caption)
                                 <p class="text-[10px] text-[var(--nyt-gray-muted)] italic mt-1 leading-tight">{{ $heroSides[0]->image_caption }}</p>
@@ -83,7 +83,7 @@
                     @if($leadStory->image_url)
                         <div class="my-3">
                             <div class="overflow-hidden border border-[var(--nyt-black)] aspect-[4/5] w-full max-w-lg mx-auto">
-                                <img src="{{ $leadStory->image_url }}" alt="{{ $leadStory->title }}" class="w-full h-full aspect-[4/5] object-cover filter contrast-[1.05] hover:scale-[1.01] transition duration-500">
+                                <img src="{{ $leadStory->image_url }}" alt="{{ $leadStory->title }}" fetchpriority="high" decoding="async" class="w-full h-full aspect-[4/5] object-cover filter contrast-[1.05] hover:scale-[1.01] transition duration-500">
                             </div>
                             <div class="flex justify-between items-start text-[11px] text-[var(--nyt-gray-muted)] italic mt-1.5 px-0.5 leading-snug">
                                 <span>{{ $leadStory->image_caption ?? 'Sosok istimewa yang dirayakan pada momen spesialnya.' }}</span>
@@ -214,7 +214,7 @@
                 <div class="space-y-2">
                     @if($art->image_url)
                         <div class="overflow-hidden border border-[var(--nyt-gray-border)] aspect-[4/5] w-full">
-                            <img src="{{ $art->image_url }}" alt="{{ $art->title }}" class="w-full h-full aspect-[4/5] object-cover filter grayscale hover:grayscale-0 transition duration-500">
+                            <img src="{{ $art->image_url }}" alt="{{ $art->title }}" loading="lazy" decoding="async" class="w-full h-full aspect-[4/5] object-cover filter grayscale hover:grayscale-0 transition duration-500">
                         </div>
                     @endif
                     <div class="text-[10px] font-sans font-bold uppercase tracking-widest text-[var(--nyt-gray-muted)]">

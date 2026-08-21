@@ -14,14 +14,16 @@ class NewspaperController extends Controller
     {
         $settings = NewspaperSetting::current();
         
-        $leadStory = Article::where('layout_zone', 'lead_story')->orderBy('order_num', 'asc')->first();
-        $heroSides = Article::where('layout_zone', 'hero_side')->orderBy('order_num', 'asc')->take(2)->get();
-        $opinions = Article::where('layout_zone', 'opinion')->orderBy('order_num', 'asc')->get();
-        $artsLeisure = Article::where('layout_zone', 'arts_leisure')->orderBy('order_num', 'asc')->get();
-        $briefs = Article::where('layout_zone', 'briefs')->orderBy('order_num', 'asc')->get();
-        $classifieds = Article::where('layout_zone', 'classifieds')->orderBy('order_num', 'asc')->get();
-        
         $allArticles = Article::orderBy('order_num', 'asc')->get();
+        $articlesByZone = $allArticles->groupBy('layout_zone');
+
+        $leadStory = $articlesByZone->get('lead_story', collect())->first();
+        $heroSides = $articlesByZone->get('hero_side', collect())->take(2);
+        $opinions = $articlesByZone->get('opinion', collect());
+        $artsLeisure = $articlesByZone->get('arts_leisure', collect());
+        $briefs = $articlesByZone->get('briefs', collect());
+        $classifieds = $articlesByZone->get('classifieds', collect());
+
         $crossword = CrosswordPuzzle::first();
         $tributes = TributeMessage::where('is_approved', true)->orderBy('is_featured', 'desc')->orderBy('created_at', 'desc')->get();
 
@@ -69,13 +71,15 @@ class NewspaperController extends Controller
 
     public function printKeepsake()
     {
-        $settings = NewspaperSetting::current();
-        $leadStory = Article::where('layout_zone', 'lead_story')->first();
-        $heroSides = Article::where('layout_zone', 'hero_side')->take(2)->get();
-        $opinions = Article::where('layout_zone', 'opinion')->take(2)->get();
-        $artsLeisure = Article::where('layout_zone', 'arts_leisure')->first();
-        $briefs = Article::where('layout_zone', 'briefs')->take(2)->get();
-        $classifieds = Article::where('layout_zone', 'classifieds')->take(2)->get();
+        $allArticles = Article::orderBy('order_num', 'asc')->get();
+        $articlesByZone = $allArticles->groupBy('layout_zone');
+
+        $leadStory = $articlesByZone->get('lead_story', collect())->first();
+        $heroSides = $articlesByZone->get('hero_side', collect())->take(2);
+        $opinions = $articlesByZone->get('opinion', collect())->take(2);
+        $artsLeisure = $articlesByZone->get('arts_leisure', collect())->first();
+        $briefs = $articlesByZone->get('briefs', collect())->take(2);
+        $classifieds = $articlesByZone->get('classifieds', collect())->take(2);
         $tributes = TributeMessage::where('is_approved', true)->take(4)->get();
         $crossword = CrosswordPuzzle::first();
 
