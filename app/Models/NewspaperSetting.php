@@ -29,4 +29,14 @@ class NewspaperSetting extends Model
             'admin_pin' => '1234',
         ]);
     }
+
+    protected function getAudioUrlAttribute($value)
+    {
+        return format_gdrive_url($value);
+    }
+
+    protected function setAudioUrlAttribute($value)
+    {
+        $this->attributes['audio_url'] = format_gdrive_url($value);
+    }
 }

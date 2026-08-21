@@ -20,4 +20,14 @@ class Article extends Model
     {
         return $query->where('layout_zone', $zone)->orderBy('order_num', 'asc')->orderBy('created_at', 'desc');
     }
+
+    protected function getImageUrlAttribute($value)
+    {
+        return format_gdrive_url($value);
+    }
+
+    protected function setImageUrlAttribute($value)
+    {
+        $this->attributes['image_url'] = format_gdrive_url($value);
+    }
 }

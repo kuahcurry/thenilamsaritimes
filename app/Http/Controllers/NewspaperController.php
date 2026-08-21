@@ -54,7 +54,7 @@ class NewspaperController extends Controller
             'sender_name' => 'required|string|max:100',
             'sender_relation' => 'nullable|string|max:100',
             'message' => 'required|string|max:2000',
-            'photo_url' => 'nullable|url|max:500',
+            'photo_url' => 'nullable|string|max:2000',
         ]);
 
         $validated['is_approved'] = true; // Auto-approved for celebratory ease, can be toggled by admin

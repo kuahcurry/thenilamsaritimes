@@ -15,4 +15,14 @@ class TributeMessage extends Model
         'is_approved' => 'boolean',
         'is_featured' => 'boolean',
     ];
+
+    protected function getPhotoUrlAttribute($value)
+    {
+        return format_gdrive_url($value);
+    }
+
+    protected function setPhotoUrlAttribute($value)
+    {
+        $this->attributes['photo_url'] = format_gdrive_url($value);
+    }
 }
