@@ -30,6 +30,16 @@ class NewspaperSetting extends Model
         ]);
     }
 
+    protected function getIssueDateAttribute($value)
+    {
+        return now()->format('l, F j, Y');
+    }
+
+    protected function getAgeAttribute($value)
+    {
+        return (string) \Carbon\Carbon::parse('2003-08-25')->age;
+    }
+
     protected function getAudioUrlAttribute($value)
     {
         return format_gdrive_url($value);

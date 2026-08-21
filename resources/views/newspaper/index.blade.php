@@ -67,7 +67,7 @@
                         <span class="text-[11px] font-bold font-sans uppercase tracking-widest text-[var(--nyt-red)] inline-block border-b border-[var(--nyt-red)] pb-0.5 mb-1">
                             {{ $leadStory->kicker ?? 'COMMEMORATIVE COVER STORY' }}
                         </span>
-                        <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] text-[var(--nyt-black)]">
+                        <h2 class="font-headline text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] text-[var(--nyt-black)]">
                             <a href="{{ route('newspaper.article', $leadStory->id) }}" class="hover:underline">
                                 {{ $leadStory->title }}
                             </a>
@@ -324,15 +324,15 @@
 <!-- =========================================================================
      MODALS: SUBMIT TRIBUTE DIALOG (MATERIAL WEB)
 ========================================================================== -->
-<md-dialog id="tribute-modal" class="max-w-xl">
-    <div slot="headline" class="w-full px-8 pt-8">
-        <div class="flex items-center justify-between border-b-2 border-[var(--nyt-black)] pb-4">
+<md-dialog id="tribute-modal" class="max-w-xl w-full">
+    <div slot="headline" class="w-full px-4 sm:px-8 pt-4 sm:pt-8">
+        <div class="flex items-center justify-between border-b-2 border-[var(--nyt-black)] pb-3 sm:pb-4">
             <div class="flex items-center gap-2.5">
                 <div>
                     <div class="text-[9px] font-sans font-bold uppercase tracking-widest text-[var(--nyt-red)]">
                         Laporan Peringatan
                     </div>
-                    <h3 class="font-headline text-2xl font-bold text-[var(--nyt-black)] leading-tight">
+                    <h3 class="font-headline text-xl sm:text-2xl font-bold text-[var(--nyt-black)] leading-tight">
                         Ucapan ke Perempuan yang Dirayakan
                     </h3>
                 </div>
@@ -343,7 +343,7 @@
         </div>
     </div>
     
-    <div slot="content" class="dialog-body space-y-5 px-8 py-4">
+    <div slot="content" class="dialog-body space-y-4 px-4 sm:px-8 py-3 sm:py-4">
         <form id="tribute-form" method="POST" action="{{ route('newspaper.tribute.submit') }}" class="space-y-4">
             @csrf
             <p class="text-xs font-serif italic text-[var(--nyt-gray-muted)] bg-[var(--nyt-card-bg)] p-3 border border-[var(--nyt-gray-border)] shadow-sm">
@@ -375,11 +375,11 @@
         </form>
     </div>
 
-    <div slot="actions" class="w-full flex items-center justify-end gap-3 px-8 pt-4 pb-8 border-t border-[var(--nyt-gray-border)]">
-        <button type="button" onclick="document.getElementById('tribute-modal').close()" class="nyt-btn-secondary px-5 py-2.5 text-xs uppercase font-sans font-bold cursor-pointer">
+    <div slot="actions" class="w-full flex items-center justify-end gap-2 sm:gap-3 px-4 sm:px-8 pt-3 sm:pt-4 pb-4 sm:pb-8 border-t border-[var(--nyt-gray-border)]">
+        <button type="button" onclick="document.getElementById('tribute-modal').close()" class="nyt-btn-secondary px-4 sm:px-5 py-2 sm:py-2.5 text-xs uppercase font-sans font-bold cursor-pointer">
             Batal
         </button>
-        <button type="button" onclick="document.getElementById('tribute-form').submit()" class="nyt-btn-primary px-6 py-2.5 text-xs font-sans uppercase font-bold tracking-wider transition cursor-pointer">
+        <button type="button" onclick="document.getElementById('tribute-form').submit()" class="nyt-btn-primary px-5 sm:px-6 py-2 sm:py-2.5 text-xs font-sans uppercase font-bold tracking-wider transition cursor-pointer">
             Terbitkan Surat &rarr;
         </button>
     </div>
